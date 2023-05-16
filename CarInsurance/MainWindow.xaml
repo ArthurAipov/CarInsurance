@@ -5,12 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarInsurance"
         mc:Ignorable="d"
-        Title="MainWindow"
-        Height="450"
-        Width="800">
+        Title="Car Insurannce"
+        MinHeight="600"
+        MinWidth="1000">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Image Source="/Resource/CarInsurance.jpg" />
+            <TextBlock Text="Безопасное Страхование"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="24" 
+                       FontWeight="SemiBold"/>
+        </StackPanel>
         <Frame Name="MainFrame"
-               NavigationUIVisibility="Hidden" 
-               />
+               NavigationUIVisibility="Hidden"
+               Grid.Row="1" />
     </Grid>
 </Window>

@@ -1,0 +1,44 @@
+﻿<Page x:Class="CarInsurance.Pages.Admin.AdminProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarInsurance.Pages.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminProfilePage"
+      Unloaded="Page_Unloaded">
+
+    <Grid Background="White">
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <TextBlock Text="Имя"
+                       Width="200" />
+            <TextBox Text="{Binding Name}"
+                     Name="TextBoxName"
+                     Width="200" />
+            <TextBlock Text="Фамилия"
+                       Width="200" />
+            <TextBox Text="{Binding Surename}"
+                     Name="TextBoxSurename"
+                     Width="200" />
+            <TextBlock Text="Телефон"
+                       Width="200" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="+7"
+                           Width="15" />
+                <TextBox Text="{Binding Phone}"
+                         Name="TextBoxPhone"
+                         Width="185" />
+            </StackPanel>
+            <TextBlock Text="Email"
+                       Width="200" />
+            <TextBox Text="{Binding Email}"
+                     Name="TextBoxEmail"
+                     Width="200" />
+            <Button Name="ButtonSave"
+                    Content="Сохранить"
+                    Click="ButtonSave_Click" />
+        </StackPanel>
+    </Grid>
+</Page>

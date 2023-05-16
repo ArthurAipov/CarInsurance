@@ -1,0 +1,39 @@
+﻿<Page x:Class="CarInsurance.Pages.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarInsurance.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegistrationPage">
+
+    <Grid Background="White">
+        <Button Name="ButtonBack"
+                Content="Назад"
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                Margin="10"
+                Click="ButtonBack_Click"/>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <TextBox Name="TextBoxLogin"
+                     Text="Login"
+                     FontSize="15"
+                     Width="170"
+                     GotFocus="TextBoxLogin_GotFocus"
+                     LostFocus="TextBoxLogin_LostFocus" />
+            <TextBox Name="TextBoxPassword"
+                     Text="Password"
+                     Margin="0,10,0,0"
+                     Width="170"
+                     FontSize="15"
+                     GotFocus="TextBoxPassword_GotFocus"
+                     LostFocus="TextBoxPassword_LostFocus"
+                     TextChanged="TextBoxPassword_TextChanged" />
+            <Button Margin="0,10,0,0"
+                    Name="ButtonLogin"
+                    Content="Зарегистрироваться"
+                    Click="ButtonLogin_Click" />
+        </StackPanel>
+    </Grid>
+</Page>

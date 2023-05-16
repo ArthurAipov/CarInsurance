@@ -1,0 +1,76 @@
+﻿<Page x:Class="CarInsurance.Pages.Client.Policies"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:CarInsurance.Pages.Client"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="Policies">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Row="1"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                  Name="DataGridOsago">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер Машины"
+                                    Binding="{Binding Car.Number}"
+                                    Width="*" />
+                <DataGridTextColumn Header="Дата начала"
+                                    Width="*"
+                                    Binding="{Binding DateEnd}" />
+                <DataGridTextColumn Header="Дата начала"
+                                    Width="*"
+                                    Binding="{Binding DateStart}" />
+                <DataGridTextColumn Header="Цена"
+                                    Width="*"
+                                    Binding="{Binding Price}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Row="1"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                  Name="DataGridCasco"
+                  Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер Машины"
+                                    Binding="{Binding Car.Number}"
+                                    Width="*" />
+                <DataGridTextColumn Header="Дата начала"
+                                    Width="*"
+                                    Binding="{Binding DateEnd}" />
+                <DataGridTextColumn Header="Дата начала"
+                                    Width="*"
+                                    Binding="{Binding DateStart}" />
+                <DataGridTextColumn Header="Цена"
+                                    Width="*"
+                                    Binding="{Binding Price}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="ОСАГО" />
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="КАСКО"
+                   Grid.Column="1" />
+        <Button HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Grid.Column="1"
+                Content="Назад"
+                Width="50"
+                Name="ButtonBack"
+                Click="ButtonBack_Click"
+                Margin="10" />
+    </Grid>
+</Page>
