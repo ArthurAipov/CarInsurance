@@ -146,6 +146,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Accountant\InsuranceDataPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Accountant\MainPageAccountant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,11 +170,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Appraiser\MainPageAppraiser.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Appraiser\ProfileStaffPage.xaml">
+    <Page Include="Pages\Appraiser\MainPageAppr.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,8 +219,14 @@
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\CountOfUser.cs" />
     <Compile Include="Models\GlobalSettings.cs" />
+    <Compile Include="Models\InsuranceType.cs" />
+    <Compile Include="Models\OsagoCasco.cs" />
+    <Compile Include="Models\SortModel.cs" />
     <Compile Include="Pages\Accountant\AccountProfilePage.xaml.cs">
       <DependentUpon>AccountProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Accountant\InsuranceDataPage.xaml.cs">
+      <DependentUpon>InsuranceDataPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Accountant\MainPageAccountant.xaml.cs">
       <DependentUpon>MainPageAccountant.xaml</DependentUpon>
@@ -237,11 +243,8 @@
     <Compile Include="Pages\Admin\StaffsPage.xaml.cs">
       <DependentUpon>StaffsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Appraiser\MainPageAppraiser.xaml.cs">
-      <DependentUpon>MainPageAppraiser.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Appraiser\ProfileStaffPage.xaml.cs">
-      <DependentUpon>ProfileStaffPage.xaml</DependentUpon>
+    <Compile Include="Pages\Appraiser\MainPageAppr.xaml.cs">
+      <DependentUpon>MainPageAppr.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AutorizationPage.xaml.cs">
       <DependentUpon>AutorizationPage.xaml</DependentUpon>

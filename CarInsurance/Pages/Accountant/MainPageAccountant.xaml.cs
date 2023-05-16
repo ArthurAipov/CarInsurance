@@ -25,6 +25,7 @@ namespace CarInsurance.Pages.Accountant
         public MainPageAccountant(DataBase.User user)
         {
             InitializeComponent();
+            MainUser = user;
         }
 
         private void ButtondsProfile_Click(object sender, RoutedEventArgs e)
@@ -35,6 +36,11 @@ namespace CarInsurance.Pages.Accountant
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void ButtonDataAboutInsurance_Click(object sender, RoutedEventArgs e)
+        {
+            AdminFrame.NavigationService.Navigate(new InsuranceDataPage());
         }
     }
 }

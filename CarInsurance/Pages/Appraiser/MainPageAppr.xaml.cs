@@ -1,4 +1,5 @@
 ﻿using CarInsurance.DataBase;
+using CarInsurance.Pages.Accountant;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,20 +18,19 @@ using System.Windows.Shapes;
 namespace CarInsurance.Pages.Appraiser
 {
     /// <summary>
-    /// Interaction logic for MainPageAppraiser.xaml
+    /// Interaction logic for MainPageAppr.xaml
     /// </summary>
-    public partial class MainPageAppraiser : Page
+    public partial class MainPageAppr : Page
     {
         public User MainUser;
-        public MainPageAppraiser(DataBase.User user)
+        public MainPageAppr(DataBase.User user)
         {
-            InitializeComponent();
             MainUser = user;
+            InitializeComponent();
         }
-
         private void ButtondsProfile_Click(object sender, RoutedEventArgs e)
         {
-            AdminFrame.NavigationService.Navigate(new ProfileStaffPage(MainUser));
+            AdminFrame.NavigationService.Navigate(new AccountProfilePage(MainUser));
         }
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)

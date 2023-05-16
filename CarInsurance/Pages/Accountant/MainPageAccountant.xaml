@@ -21,7 +21,12 @@
                     Margin="10"
                     Height="50"
                     Width="160" />
-
+            <Button Content="Данные о страховках"
+                    Name="ButtonDataAboutInsurance"
+                    Click="ButtonDataAboutInsurance_Click"
+                    Margin="10"
+                    Height="50"
+                    Width="160" />
         </StackPanel>
         <Frame Grid.Column="1"
                x:Name="AdminFrame"

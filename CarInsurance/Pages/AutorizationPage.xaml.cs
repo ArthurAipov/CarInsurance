@@ -152,7 +152,7 @@ namespace CarInsurance.Pages
             }
             if (user.RoleId == 4)
             {
-                NavigationService.Navigate(new MainPageAppraiser(user));
+                NavigationService.Navigate(new MainPageAppr(user));
                 return;
             }
         }
