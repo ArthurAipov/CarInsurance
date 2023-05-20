@@ -1,4 +1,5 @@
-﻿using CarInsurance.Models;
+﻿using CarInsurance.DataBase;
+using CarInsurance.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,21 @@ namespace CarInsurance.Pages.Client
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+     
+        private void DataGridOsago_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var selectedOsago = DataGridOsago.SelectedItem as Osago;
+            if(selectedOsago != null)
+            {
+                NavigationService.Navigate(new InsuranceClaimPage(selectedOsago));
+            }
+        }
+
+        private void DataGridCasco_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

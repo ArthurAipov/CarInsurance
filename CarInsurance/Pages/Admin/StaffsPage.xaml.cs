@@ -48,21 +48,21 @@ namespace CarInsurance.Pages.Admin
         private void ButtonDeleteStaff_Click(object sender, RoutedEventArgs e)
         {
             var selectedUser = DataGridStaff.SelectedItem as User;
-            if(selectedUser == null)
+            if (selectedUser == null)
             {
                 MessageBox.Show("Выберите пользователя");
                 return;
             }
-            if(selectedUser.Staff.Count != 0)
+            if (selectedUser.Staff.Count != 0)
             {
-                foreach(var staff in GlobalSettings.DB.Staff)
+                foreach (var staff in GlobalSettings.DB.Staff)
                 {
-                    if(staff.UserId == selectedUser.Id)
+                    if (staff.UserId == selectedUser.Id)
                     {
                         GlobalSettings.DB.Staff.Remove(staff);
                     }
-                    GlobalSettings.DB.SaveChanges();
                 }
+                    GlobalSettings.DB.SaveChanges();
             }
             GlobalSettings.DB.User.Remove(selectedUser);
             GlobalSettings.DB.SaveChanges();

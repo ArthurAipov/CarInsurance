@@ -68,15 +68,15 @@ namespace CarInsurance.Pages.Client
             var checkNum = GlobalSettings.DB.Car.FirstOrDefault(u => u.Number == car.Number);
             if (checkNum != null)
                 errorMessage += "Данный номер уже был зарегистрирован \n";
-            string patternForNumber = @"^[ABEKMHOPCTYX]\d{3}(?<!000)[ABEKMHOPCTYX]{2}\d{2,3}$";
+            string patternForNumber = @"^[АВЕКМНОРСТУХ]\d{3}(?<!000)[АВЕКМНОРСТУХ]{2}\d{2,3}$";
             if (!Regex.IsMatch(car.Number, patternForNumber) && car.Number != null)
                 errorMessage += "Введите корректный номер машины \n";
-            string patternForPassport = @"^[0-9]{2}[ABEKMHOPCTYX]{2}[0-9]{6}$";
+            string patternForPassport = @"^[0-9]{2}[АВЕКМНОРСТУХ]{2}[0-9]{6}$";
             if (!Regex.IsMatch(car.Passport, patternForPassport) && car.Passport != null)
                 errorMessage += "Введите корректный паспорт тс \n";
             if (car.Horsepower <= 0)
                 errorMessage += "Введите мощность \n";
-            string patternForVINNumber = @"^[ABEKMHOPCTYX0-9]$";
+            string patternForVINNumber = @"^[АВЕКМНОРСТУХ0-9]$";
             if (!Regex.IsMatch(car.VIN, patternForVINNumber) && car.VIN.Length != 17)
                 errorMessage += "Введите корректный VIN номер \n";
             if (!string.IsNullOrWhiteSpace(errorMessage))

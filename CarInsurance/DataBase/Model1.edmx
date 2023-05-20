@@ -51,6 +51,19 @@
           <Property Name="DriverLicense" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Experience" Type="date" Nullable="false" />
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="BlackList" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmergencyApplication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DriverId" Type="int" Nullable="false" />
+          <Property Name="CarId" Type="int" Nullable="false" />
+          <Property Name="DateEmergency" Type="datetime" Nullable="false" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="ApplicationType" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Model">
           <Key>
@@ -75,6 +88,14 @@
           <Property Name="DateEnd" Type="date" Nullable="false" />
           <Property Name="CarId" Type="int" Nullable="false" />
           <Property Name="Price" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhotoEmergency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmergencyApplicationId" Type="int" Nullable="false" />
+          <Property Name="Photo" Type="image" Nullable="false" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
@@ -101,6 +122,13 @@
           <Property Name="Surename" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -188,6 +216,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_EmergencyApplication_Car">
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="EmergencyApplication" Type="Self.EmergencyApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmergencyApplication">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmergencyApplication_Driver">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+          <End Role="EmergencyApplication" Type="Self.EmergencyApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmergencyApplication">
+              <PropertyRef Name="DriverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmergencyApplication_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="EmergencyApplication" Type="Self.EmergencyApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmergencyApplication">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Osago_Car">
           <End Role="Car" Type="Self.Car" Multiplicity="1" />
           <End Role="Osago" Type="Self.Osago" Multiplicity="*" />
@@ -224,6 +288,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PhotoEmergency_EmergencyApplication">
+          <End Role="EmergencyApplication" Type="Self.EmergencyApplication" Multiplicity="1" />
+          <End Role="PhotoEmergency" Type="Self.PhotoEmergency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmergencyApplication">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoEmergency">
+              <PropertyRef Name="EmergencyApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Staff_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -253,11 +329,14 @@
           <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Casco" EntityType="Self.Casco" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmergencyApplication" EntityType="Self.EmergencyApplication" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Osago" EntityType="Self.Osago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhotoEmergency" EntityType="Self.PhotoEmergency" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -281,6 +360,18 @@
             <End Role="User" EntitySet="User" />
             <End Role="Driver" EntitySet="Driver" />
           </AssociationSet>
+          <AssociationSet Name="FK_EmergencyApplication_Car" Association="Self.FK_EmergencyApplication_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmergencyApplication_Driver" Association="Self.FK_EmergencyApplication_Driver">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmergencyApplication_Status" Association="Self.FK_EmergencyApplication_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
+          </AssociationSet>
           <AssociationSet Name="FK_Osago_Car" Association="Self.FK_Osago_Car">
             <End Role="Car" EntitySet="Car" />
             <End Role="Osago" EntitySet="Osago" />
@@ -292,6 +383,10 @@
           <AssociationSet Name="FK_Osago_Region" Association="Self.FK_Osago_Region">
             <End Role="Region" EntitySet="Region" />
             <End Role="Osago" EntitySet="Osago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoEmergency_EmergencyApplication" Association="Self.FK_PhotoEmergency_EmergencyApplication">
+            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
+            <End Role="PhotoEmergency" EntitySet="PhotoEmergency" />
           </AssociationSet>
           <AssociationSet Name="FK_Staff_User" Association="Self.FK_Staff_User">
             <End Role="User" EntitySet="User" />
@@ -311,11 +406,14 @@
           <EntitySet Name="Car" EntityType="CarInsuranceModel.Car" />
           <EntitySet Name="Casco" EntityType="CarInsuranceModel.Casco" />
           <EntitySet Name="Driver" EntityType="CarInsuranceModel.Driver" />
+          <EntitySet Name="EmergencyApplication" EntityType="CarInsuranceModel.EmergencyApplication" />
           <EntitySet Name="Model" EntityType="CarInsuranceModel.Model" />
           <EntitySet Name="Osago" EntityType="CarInsuranceModel.Osago" />
+          <EntitySet Name="PhotoEmergency" EntityType="CarInsuranceModel.PhotoEmergency" />
           <EntitySet Name="Region" EntityType="CarInsuranceModel.Region" />
           <EntitySet Name="Role" EntityType="CarInsuranceModel.Role" />
           <EntitySet Name="Staff" EntityType="CarInsuranceModel.Staff" />
+          <EntitySet Name="Status" EntityType="CarInsuranceModel.Status" />
           <EntitySet Name="sysdiagrams" EntityType="CarInsuranceModel.sysdiagrams" />
           <EntitySet Name="Type" EntityType="CarInsuranceModel.Type" />
           <EntitySet Name="User" EntityType="CarInsuranceModel.User" />
@@ -331,6 +429,10 @@
             <End Role="Car" EntitySet="Car" />
             <End Role="Casco" EntitySet="Casco" />
           </AssociationSet>
+          <AssociationSet Name="FK_EmergencyApplication_Car" Association="CarInsuranceModel.FK_EmergencyApplication_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
+          </AssociationSet>
           <AssociationSet Name="FK_Osago_Car" Association="CarInsuranceModel.FK_Osago_Car">
             <End Role="Car" EntitySet="Car" />
             <End Role="Osago" EntitySet="Osago" />
@@ -343,9 +445,21 @@
             <End Role="User" EntitySet="User" />
             <End Role="Driver" EntitySet="Driver" />
           </AssociationSet>
+          <AssociationSet Name="FK_EmergencyApplication_Driver" Association="CarInsuranceModel.FK_EmergencyApplication_Driver">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
+          </AssociationSet>
           <AssociationSet Name="FK_Osago_Driver" Association="CarInsuranceModel.FK_Osago_Driver">
             <End Role="Driver" EntitySet="Driver" />
             <End Role="Osago" EntitySet="Osago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmergencyApplication_Status" Association="CarInsuranceModel.FK_EmergencyApplication_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoEmergency_EmergencyApplication" Association="CarInsuranceModel.FK_PhotoEmergency_EmergencyApplication">
+            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
+            <End Role="PhotoEmergency" EntitySet="PhotoEmergency" />
           </AssociationSet>
           <AssociationSet Name="FK_Osago_Region" Association="CarInsuranceModel.FK_Osago_Region">
             <End Role="Region" EntitySet="Region" />
@@ -382,6 +496,7 @@
           <NavigationProperty Name="Driver" Relationship="CarInsuranceModel.FK_Car_Driver" FromRole="Car" ToRole="Driver" />
           <NavigationProperty Name="Model" Relationship="CarInsuranceModel.FK_Car_Model" FromRole="Car" ToRole="Model" />
           <NavigationProperty Name="Casco" Relationship="CarInsuranceModel.FK_Casco_Car" FromRole="Car" ToRole="Casco" />
+          <NavigationProperty Name="EmergencyApplication" Relationship="CarInsuranceModel.FK_EmergencyApplication_Car" FromRole="Car" ToRole="EmergencyApplication" />
           <NavigationProperty Name="Osago" Relationship="CarInsuranceModel.FK_Osago_Car" FromRole="Car" ToRole="Osago" />
         </EntityType>
         <EntityType Name="Casco">
@@ -412,10 +527,28 @@
           <Property Name="DriverLicense" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Experience" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BlackList" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Car" Relationship="CarInsuranceModel.FK_Car_Driver" FromRole="Driver" ToRole="Car" />
           <NavigationProperty Name="Casco" Relationship="CarInsuranceModel.FK_Casco_Driver" FromRole="Driver" ToRole="Casco" />
           <NavigationProperty Name="User" Relationship="CarInsuranceModel.FK_Driver_User" FromRole="Driver" ToRole="User" />
+          <NavigationProperty Name="EmergencyApplication" Relationship="CarInsuranceModel.FK_EmergencyApplication_Driver" FromRole="Driver" ToRole="EmergencyApplication" />
           <NavigationProperty Name="Osago" Relationship="CarInsuranceModel.FK_Osago_Driver" FromRole="Driver" ToRole="Osago" />
+        </EntityType>
+        <EntityType Name="EmergencyApplication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DriverId" Type="Int32" Nullable="false" />
+          <Property Name="CarId" Type="Int32" Nullable="false" />
+          <Property Name="DateEmergency" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="ApplicationType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="CarInsuranceModel.FK_EmergencyApplication_Car" FromRole="EmergencyApplication" ToRole="Car" />
+          <NavigationProperty Name="Driver" Relationship="CarInsuranceModel.FK_EmergencyApplication_Driver" FromRole="EmergencyApplication" ToRole="Driver" />
+          <NavigationProperty Name="Status" Relationship="CarInsuranceModel.FK_EmergencyApplication_Status" FromRole="EmergencyApplication" ToRole="Status" />
+          <NavigationProperty Name="PhotoEmergency" Relationship="CarInsuranceModel.FK_PhotoEmergency_EmergencyApplication" FromRole="EmergencyApplication" ToRole="PhotoEmergency" />
         </EntityType>
         <EntityType Name="Model">
           <Key>
@@ -445,6 +578,15 @@
           <NavigationProperty Name="Driver" Relationship="CarInsuranceModel.FK_Osago_Driver" FromRole="Osago" ToRole="Driver" />
           <NavigationProperty Name="Region" Relationship="CarInsuranceModel.FK_Osago_Region" FromRole="Osago" ToRole="Region" />
         </EntityType>
+        <EntityType Name="PhotoEmergency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmergencyApplicationId" Type="Int32" Nullable="false" />
+          <Property Name="Photo" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="EmergencyApplication" Relationship="CarInsuranceModel.FK_PhotoEmergency_EmergencyApplication" FromRole="PhotoEmergency" ToRole="EmergencyApplication" />
+        </EntityType>
         <EntityType Name="Region">
           <Key>
             <PropertyRef Name="Id" />
@@ -473,6 +615,14 @@
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="CarInsuranceModel.FK_Staff_User" FromRole="Staff" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EmergencyApplication" Relationship="CarInsuranceModel.FK_EmergencyApplication_Status" FromRole="Status" ToRole="EmergencyApplication" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -539,6 +689,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_EmergencyApplication_Car">
+          <End Type="CarInsuranceModel.Car" Role="Car" Multiplicity="1" />
+          <End Type="CarInsuranceModel.EmergencyApplication" Role="EmergencyApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmergencyApplication">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Osago_Car">
           <End Type="CarInsuranceModel.Car" Role="Car" Multiplicity="1" />
           <End Type="CarInsuranceModel.Osago" Role="Osago" Multiplicity="*" />
@@ -575,6 +737,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_EmergencyApplication_Driver">
+          <End Type="CarInsuranceModel.Driver" Role="Driver" Multiplicity="1" />
+          <End Type="CarInsuranceModel.EmergencyApplication" Role="EmergencyApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmergencyApplication">
+              <PropertyRef Name="DriverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Osago_Driver">
           <End Type="CarInsuranceModel.Driver" Role="Driver" Multiplicity="1" />
           <End Type="CarInsuranceModel.Osago" Role="Osago" Multiplicity="*" />
@@ -584,6 +758,30 @@
             </Principal>
             <Dependent Role="Osago">
               <PropertyRef Name="DriverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmergencyApplication_Status">
+          <End Type="CarInsuranceModel.Status" Role="Status" Multiplicity="1" />
+          <End Type="CarInsuranceModel.EmergencyApplication" Role="EmergencyApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmergencyApplication">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoEmergency_EmergencyApplication">
+          <End Type="CarInsuranceModel.EmergencyApplication" Role="EmergencyApplication" Multiplicity="1" />
+          <End Type="CarInsuranceModel.PhotoEmergency" Role="PhotoEmergency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmergencyApplication">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoEmergency">
+              <PropertyRef Name="EmergencyApplicationId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -666,6 +864,7 @@
           <EntitySetMapping Name="Driver">
             <EntityTypeMapping TypeName="CarInsuranceModel.Driver">
               <MappingFragment StoreEntitySet="Driver">
+                <ScalarProperty Name="BlackList" ColumnName="BlackList" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Experience" ColumnName="Experience" />
                 <ScalarProperty Name="DriverLicense" ColumnName="DriverLicense" />
@@ -676,6 +875,19 @@
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmergencyApplication">
+            <EntityTypeMapping TypeName="CarInsuranceModel.EmergencyApplication">
+              <MappingFragment StoreEntitySet="EmergencyApplication">
+                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="DateEmergency" ColumnName="DateEmergency" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -706,6 +918,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PhotoEmergency">
+            <EntityTypeMapping TypeName="CarInsuranceModel.PhotoEmergency">
+              <MappingFragment StoreEntitySet="PhotoEmergency">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="EmergencyApplicationId" ColumnName="EmergencyApplicationId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Region">
             <EntityTypeMapping TypeName="CarInsuranceModel.Region">
               <MappingFragment StoreEntitySet="Region">
@@ -731,6 +952,14 @@
                 <ScalarProperty Name="Surename" ColumnName="Surename" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="CarInsuranceModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

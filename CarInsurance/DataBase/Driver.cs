@@ -19,6 +19,7 @@ namespace CarInsurance.DataBase
         {
             this.Car = new HashSet<Car>();
             this.Casco = new HashSet<Casco>();
+            this.EmergencyApplication = new HashSet<EmergencyApplication>();
             this.Osago = new HashSet<Osago>();
         }
     
@@ -33,12 +34,15 @@ namespace CarInsurance.DataBase
         public string DriverLicense { get; set; }
         public System.DateTime Experience { get; set; }
         public System.DateTime DateOfBirth { get; set; }
+        public bool BlackList { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Car> Car { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Casco> Casco { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmergencyApplication> EmergencyApplication { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Osago> Osago { get; set; }
     }

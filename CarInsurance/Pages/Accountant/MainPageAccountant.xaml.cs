@@ -42,5 +42,10 @@ namespace CarInsurance.Pages.Accountant
         {
             AdminFrame.NavigationService.Navigate(new InsuranceDataPage());
         }
+
+        private void ButtonDrivers_Click(object sender, RoutedEventArgs e)
+        {
+            AdminFrame.NavigationService.Navigate(new DriversBlackListPage());
+        }
     }
 }

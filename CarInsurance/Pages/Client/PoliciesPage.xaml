@@ -21,7 +21,8 @@
         <DataGrid Grid.Row="1"
                   IsReadOnly="True"
                   AutoGenerateColumns="False"
-                  Name="DataGridOsago">
+                  Name="DataGridOsago"
+                  MouseDoubleClick="DataGridOsago_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер Машины"
                                     Binding="{Binding Car.Number}"
@@ -35,13 +36,17 @@
                 <DataGridTextColumn Header="Цена"
                                     Width="*"
                                     Binding="{Binding Price}" />
+                <DataGridTemplateColumn Header="Страховой случай"
+                                        Width="*">
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid Grid.Row="1"
                   IsReadOnly="True"
                   AutoGenerateColumns="False"
                   Name="DataGridCasco"
-                  Grid.Column="1">
+                  Grid.Column="1"
+                  MouseDoubleClick="DataGridCasco_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер Машины"
                                     Binding="{Binding Car.Number}"
@@ -55,6 +60,9 @@
                 <DataGridTextColumn Header="Цена"
                                     Width="*"
                                     Binding="{Binding Price}" />
+                <DataGridTemplateColumn Header="Страховой случай"
+                                        Width="*">
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock HorizontalAlignment="Center"

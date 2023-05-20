@@ -53,7 +53,7 @@ namespace CarInsurance.Pages.Client
 
         public void Refresh()
         {
-            double fullPrice = 5000;
+            double fullPrice = 5900;
             var selectedCar = ComboBoxCar.SelectedItem as Car;
             var selectsdRegion = ComboBoxRegion.SelectedItem as Region;
             if (selectsdRegion != null)
@@ -64,12 +64,58 @@ namespace CarInsurance.Pages.Client
             var experience = DateTime.Now.Year - MainDriver.Experience.Year;
             var birth = DateTime.Now.Year - MainDriver.DateOfBirth.Year;
             var selectedCount = ComboBoxCountUsers.SelectedItem as CountOfUser;
+            if (selectedCar != null)
+            {
+                if (selectedCar.Driver.Osago.Where(u => u.CarId == selectedCar.Id).ToList().Count != 0)
+                {
+                    var osagoSelectedCar = selectedCar.Driver.Osago.Last();
+                    if (osagoSelectedCar.DateEnd > DateTime.Now.Date)
+                    {
+                        MessageBox.Show("На данную машину уже было оформленно ОСАГО и оно пока не истекло");
+                        ButtonIssue.IsEnabled = false;
+                        return;
+                    }
+                }
+                else
+                {
+                    ButtonIssue.IsEnabled = true;
+                }
+            }
             if (selectedCount != null)
             {
                 if (selectedCount.Id == 2)
                     fullPrice = fullPrice * 1.3;
                 if (selectedCount.Id == 3)
                     fullPrice = fullPrice * 2.6;
+            }
+            if (selectedCar != null)
+            {
+                var horsePower = selectedCar.Horsepower;
+                if (horsePower <= 50)
+                {
+                    fullPrice = fullPrice * 0.6;
+                }
+                if (50 < horsePower && horsePower <= 70)
+                {
+                    fullPrice = fullPrice * 1.0;
+                }
+                if (70 < horsePower && horsePower <= 100)
+                {
+                    fullPrice = fullPrice * 1.1;
+                }
+                if (100 < horsePower && horsePower <= 120)
+                {
+                    fullPrice = fullPrice * 1.2;
+                }
+                if (120 < horsePower && horsePower <= 150)
+                {
+                    fullPrice = fullPrice * 1.4;
+                }
+                if (150 <= horsePower)
+                {
+                    fullPrice = fullPrice * 1.6;
+                }
+
             }
             if (experience == 0)
             {
@@ -251,7 +297,7 @@ namespace CarInsurance.Pages.Client
             GlobalSettings.DB.Osago.Add(osago);
             GlobalSettings.DB.SaveChanges();
             NavigationService.GoBack();
-            
+
 
         }
 
@@ -271,3 +317,4 @@ namespace CarInsurance.Pages.Client
         }
     }
 }
+

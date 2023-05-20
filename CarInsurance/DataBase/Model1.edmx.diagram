@@ -5,25 +5,32 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6b17c153a96e4f31969e3847922605cd" Name="Diagram1" ZoomLevel="47">
-        <EntityTypeShape EntityType="CarInsuranceModel.Brand" Width="1.5" PointX="0.75" PointY="2.375" />
-        <EntityTypeShape EntityType="CarInsuranceModel.Car" Width="1.5" PointX="7.5" PointY="4.375" />
-        <EntityTypeShape EntityType="CarInsuranceModel.Casco" Width="1.5" PointX="12.75" PointY="4.75" />
-        <EntityTypeShape EntityType="CarInsuranceModel.Driver" Width="1.5" PointX="5.25" PointY="4.125" />
-        <EntityTypeShape EntityType="CarInsuranceModel.Model" Width="1.5" PointX="5.25" PointY="0.75" />
-        <EntityTypeShape EntityType="CarInsuranceModel.Osago" Width="1.5" PointX="9.75" PointY="4.5" />
-        <EntityTypeShape EntityType="CarInsuranceModel.Region" Width="1.5" PointX="7.5" PointY="1.125" />
-        <EntityTypeShape EntityType="CarInsuranceModel.Role" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="CarInsuranceModel.Staff" Width="1.5" PointX="5.25" PointY="8.75" />
-        <EntityTypeShape EntityType="CarInsuranceModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="9.375" />
-        <EntityTypeShape EntityType="CarInsuranceModel.Type" Width="1.5" PointX="0.75" PointY="10.375" />
-        <EntityTypeShape EntityType="CarInsuranceModel.User" Width="1.5" PointX="3" PointY="6.375" />
+        <EntityTypeShape EntityType="CarInsuranceModel.Brand" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CarInsuranceModel.Car" Width="1.5" PointX="7.5" PointY="7.875" />
+        <EntityTypeShape EntityType="CarInsuranceModel.Casco" Width="1.5" PointX="9.75" PointY="8.375" />
+        <EntityTypeShape EntityType="CarInsuranceModel.Driver" Width="1.5" PointX="5.25" PointY="7.5" />
+        <EntityTypeShape EntityType="CarInsuranceModel.EmergencyApplication" Width="1.5" PointX="12.75" PointY="8.125" />
+        <EntityTypeShape EntityType="CarInsuranceModel.Model" Width="1.5" PointX="5.25" PointY="13.375" />
+        <EntityTypeShape EntityType="CarInsuranceModel.Osago" Width="1.5" PointX="9.75" PointY="4.25" />
+        <EntityTypeShape EntityType="CarInsuranceModel.PhotoEmergency" Width="1.5" PointX="15" PointY="8.75" />
+        <EntityTypeShape EntityType="CarInsuranceModel.Region" Width="1.5" PointX="7.5" PointY="4.75" />
+        <EntityTypeShape EntityType="CarInsuranceModel.Role" Width="1.5" PointX="0.75" PointY="7.375" />
+        <EntityTypeShape EntityType="CarInsuranceModel.Staff" Width="1.5" PointX="5.25" PointY="4.375" />
+        <EntityTypeShape EntityType="CarInsuranceModel.Status" Width="1.5" PointX="10.5" PointY="11.875" />
+        <EntityTypeShape EntityType="CarInsuranceModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CarInsuranceModel.Type" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CarInsuranceModel.User" Width="1.5" PointX="3" PointY="6.875" />
         <AssociationConnector Association="CarInsuranceModel.FK_Car_Driver" />
         <AssociationConnector Association="CarInsuranceModel.FK_Car_Model" />
         <AssociationConnector Association="CarInsuranceModel.FK_Casco_Car" />
+        <AssociationConnector Association="CarInsuranceModel.FK_EmergencyApplication_Car" />
         <AssociationConnector Association="CarInsuranceModel.FK_Osago_Car" />
         <AssociationConnector Association="CarInsuranceModel.FK_Casco_Driver" />
         <AssociationConnector Association="CarInsuranceModel.FK_Driver_User" />
+        <AssociationConnector Association="CarInsuranceModel.FK_EmergencyApplication_Driver" />
         <AssociationConnector Association="CarInsuranceModel.FK_Osago_Driver" />
+        <AssociationConnector Association="CarInsuranceModel.FK_EmergencyApplication_Status" />
+        <AssociationConnector Association="CarInsuranceModel.FK_PhotoEmergency_EmergencyApplication" />
         <AssociationConnector Association="CarInsuranceModel.FK_Osago_Region" />
         <AssociationConnector Association="CarInsuranceModel.FK_User_Role" />
         <AssociationConnector Association="CarInsuranceModel.FK_Staff_User" />

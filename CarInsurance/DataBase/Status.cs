@@ -12,32 +12,18 @@ namespace CarInsurance.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class Car
+    public partial class Status
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Car()
+        public Status()
         {
-            this.Casco = new HashSet<Casco>();
             this.EmergencyApplication = new HashSet<EmergencyApplication>();
-            this.Osago = new HashSet<Osago>();
         }
     
         public int Id { get; set; }
-        public string Number { get; set; }
-        public double Horsepower { get; set; }
-        public string VIN { get; set; }
-        public int DriverId { get; set; }
-        public string Passport { get; set; }
-        public System.DateTime DateOfPurchase { get; set; }
-        public int ModelsId { get; set; }
+        public string Name { get; set; }
     
-        public virtual Driver Driver { get; set; }
-        public virtual Model Model { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Casco> Casco { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmergencyApplication> EmergencyApplication { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Osago> Osago { get; set; }
     }
 }

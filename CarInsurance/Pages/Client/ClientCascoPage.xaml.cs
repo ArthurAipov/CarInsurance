@@ -58,11 +58,25 @@ namespace CarInsurance.Pages.Client
             var selectedCount = ComboBoxCountUsers.SelectedItem as CountOfUser;
             if (selectedCar != null)
             {
+                if (selectedCar.Driver.Casco.Where(u => u.CarId == selectedCar.Id).ToList().Count != 0)
+                {
+                    var cascoSelectedCar = selectedCar.Driver.Casco.Last();
+                    if (cascoSelectedCar.DateEnd > DateTime.Now.Date)
+                    {   
+                        MessageBox.Show("На данную машину уже было оформленно КАСКО и оно пока не истекло");
+                        ButtonIssue.IsEnabled = false;
+                        return;
+                    }
+                }
+                else
+                {
+                    ButtonIssue.IsEnabled = true;
+                }
                 var priceForParse = selectedCar.Model.Price.Split(',');
                 double carPrice = 0;
                 if (priceForParse.Length > 1)
                 {
-                   
+
                     var stringPrice = priceForParse[0];
                     carPrice = double.Parse(stringPrice);
                 }

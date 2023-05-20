@@ -1,0 +1,54 @@
+﻿<Page x:Class="CarInsurance.Pages.Accountant.DriversBlackListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:CarInsurance.Pages.Accountant"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="DriversBlackListPage" Loaded="Page_Loaded">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0">
+            <TextBlock Text="Поиск по паспорту: " />
+            <TextBox Width="100"
+                     Name="TextBoxPassportData"
+                     TextChanged="TextBoxPassportData_TextChanged" />
+            <CheckBox Content="Черный список"  Margin="30,0,0,0"
+                      Name="CheckBoxBlackList"
+                      Checked="CheckBoxBlackList_Checked"
+                      Unchecked="CheckBoxBlackList_Unchecked"/>
+        </StackPanel>
+        <DataGrid AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Grid.Row="1"
+                  Name="DataGridDrivers"
+                  MouseDoubleClick="DataGridDrivers_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя"
+                                    Width="*"
+                                    Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Фамилия"
+                                    Width="*"
+                                    Binding="{Binding Surname}" />
+                <DataGridTextColumn Header="Отчество"
+                                    Width="*"
+                                    Binding="{Binding Patronic}" />
+                <DataGridTextColumn Header="Черный лист"
+                                    Width="*"
+                                    Binding="{Binding BlackList}" />
+                <DataGridTextColumn Header="Паспорт"
+                                    Width="*"
+                                    Binding="{Binding PassportData}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

@@ -79,6 +79,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Driver.cs" />
+    <Compile Include="Pages\Client\InsuranceClaimListPage.xaml.cs">
+      <DependentUpon>InsuranceClaimListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ProfileDialogWindow.xaml.cs">
+      <DependentUpon>ProfileDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -97,6 +104,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Driver.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\EmergencyApplication.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Model.cs">
@@ -120,6 +130,9 @@
     <Compile Include="DataBase\Osago.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataBase\PhotoEmergency.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataBase\Region.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -127,6 +140,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Staff.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Status.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\sysdiagrams.cs">
@@ -143,6 +159,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\Accountant\AccountProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Accountant\DriversBlackListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,6 +222,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Client\InsuranceClaimListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Client\InsuranceClaimPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Client\MainPageClient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -211,6 +239,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ProfileDialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -224,6 +256,9 @@
     <Compile Include="Models\SortModel.cs" />
     <Compile Include="Pages\Accountant\AccountProfilePage.xaml.cs">
       <DependentUpon>AccountProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Accountant\DriversBlackListPage.xaml.cs">
+      <DependentUpon>DriversBlackListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Accountant\InsuranceDataPage.xaml.cs">
       <DependentUpon>InsuranceDataPage.xaml</DependentUpon>
@@ -266,6 +301,9 @@
     </Compile>
     <Compile Include="Pages\Client\ClientTransportPage.xaml.cs">
       <DependentUpon>ClientTransportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Client\InsuranceClaimPage.xaml.cs">
+      <DependentUpon>InsuranceClaimPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Client\MainPageClient.xaml.cs">
       <DependentUpon>MainPageClient.xaml</DependentUpon>

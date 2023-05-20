@@ -45,12 +45,24 @@ namespace CarInsurance.Pages.Client
             }
             else
             {
+                DatePickerStartExperience.IsEnabled = false;
                 driver.Experience = dateNow;
                 driver.DateOfBirth = dateNow.AddYears(-18);
                 IsAdd = true;
             }
             DataContext = driver;
 
+        }
+
+        public void Refresh()
+        {
+            var selectedDateBirth = DatePickerBirth.SelectedDate;
+            if (selectedDateBirth != null)
+            {
+                DatePickerStartExperience.DisplayDateStart = selectedDateBirth.Value.AddYears(18);
+                DatePickerStartExperience.IsEnabled = true;
+                DatePickerStartExperience.SelectedDate = selectedDateBirth.Value.AddYears(18);
+            }
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
@@ -77,17 +89,29 @@ namespace CarInsurance.Pages.Client
             if (driver.Phone == null)
                 errorMessage += "Введите номер телефона \n";
             string patternForPhone = @"^[0-9]{10}$";
-            if (!Regex.IsMatch(driver.Phone, patternForPhone))
-                errorMessage += "Введите корректный номер телефона \n";
+            if (driver.Phone != null)
+            {
+                if (!Regex.IsMatch(driver.Phone, patternForPhone))
+                    errorMessage += "Введите корректный номер телефона \n";
+            }
             string patternForPassportData = @"^[0-9]{10}$";
-            if (!Regex.IsMatch(driver.PassportData, patternForPassportData))
-                errorMessage += "Введите корректные данные паспорта \n";
+            if (driver.PassportData != null)
+            {
+                if (!Regex.IsMatch(driver.PassportData, patternForPassportData))
+                    errorMessage += "Введите корректные данные паспорта \n";
+            }
             var patternForEmail = @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";
-            if (!Regex.IsMatch(driver.Email, patternForEmail))
-                errorMessage += "Введите корректный Email \n";
-            string patternForLicense = @"[0-9]{10}$";
-            if (!Regex.IsMatch(driver.DriverLicense, patternForLicense))
-                errorMessage += "Введите корректное водительское удостоверение \n";
+            if (driver.Email != null)
+            {
+                if (!Regex.IsMatch(driver.Email, patternForEmail))
+                    errorMessage += "Введите корректный Email \n";
+            }
+            if (driver.DriverLicense != null)
+            {
+                string patternForLicense = @"[0-9]{10}$";
+                if (!Regex.IsMatch(driver.DriverLicense, patternForLicense))
+                    errorMessage += "Введите корректное водительское удостоверение \n";
+            }
             if (!string.IsNullOrWhiteSpace(errorMessage))
             {
                 MessageBox.Show(errorMessage);
@@ -95,6 +119,7 @@ namespace CarInsurance.Pages.Client
             }
             if (IsAdd)
             {
+                driver.BlackList = false;
                 var messageAboutError = "";
                 var driverLicense = GlobalSettings.DB.Driver.FirstOrDefault(u => u.DriverLicense == driver.DriverLicense);
                 if (driverLicense != null)
@@ -102,7 +127,7 @@ namespace CarInsurance.Pages.Client
                 var passport = GlobalSettings.DB.Driver.FirstOrDefault(u => u.PassportData == driver.PassportData);
                 if (passport != null)
                     messageAboutError += "Эти паспортные данные уже были заняты \n";
-                if(!string.IsNullOrWhiteSpace(messageAboutError))
+                if (!string.IsNullOrWhiteSpace(messageAboutError))
                 {
                     MessageBox.Show(messageAboutError);
                     return;
@@ -118,9 +143,24 @@ namespace CarInsurance.Pages.Client
         {
             if (!IsSave)
             {
+
                 var driver = DataContext as Driver;
-                GlobalSettings.DB.Entry(driver).CurrentValues.SetValues(OldValues);
+                if (OldValues != null)
+                {
+                    GlobalSettings.DB.Entry(driver).CurrentValues.SetValues(OldValues);
+
+                }
             }
+        }
+
+        private void DatePickerBirth_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void DatePickerStartExperience_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

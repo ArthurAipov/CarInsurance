@@ -29,11 +29,14 @@ namespace CarInsurance.DataBase
         public virtual DbSet<Car> Car { get; set; }
         public virtual DbSet<Casco> Casco { get; set; }
         public virtual DbSet<Driver> Driver { get; set; }
+        public virtual DbSet<EmergencyApplication> EmergencyApplication { get; set; }
         public virtual DbSet<Model> Model { get; set; }
         public virtual DbSet<Osago> Osago { get; set; }
+        public virtual DbSet<PhotoEmergency> PhotoEmergency { get; set; }
         public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Type> Type { get; set; }
         public virtual DbSet<User> User { get; set; }

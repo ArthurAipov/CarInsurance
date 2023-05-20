@@ -56,11 +56,13 @@
                        Width="200" />
             <DatePicker Width="200"
                         Name="DatePickerStartExperience"
-                        SelectedDate="{Binding Experience}" />
-            <TextBlock Text="Дата выдачи удостоверения"
+                        SelectedDate="{Binding Experience}" 
+                        SelectedDateChanged="DatePickerStartExperience_SelectedDateChanged"/>
+            <TextBlock Text="Дата рождения"
                        Width="200" />
             <DatePicker Width="200"
                         Name="DatePickerBirth"
+                        SelectedDateChanged="DatePickerBirth_SelectedDateChanged"
                         SelectedDate="{Binding DateOfBirth}" />
             <Button Name="ButtonSave"
                     Content="Сохранить"
