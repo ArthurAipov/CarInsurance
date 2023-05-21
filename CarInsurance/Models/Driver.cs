@@ -25,8 +25,7 @@ namespace CarInsurance.DataBase
         {
             get
             {
-                int emergencyCount = 0;
-                emergencyCount = EmergencyApplication.Where(u => u.DriverId == Id).Count();
+                var emergencyCount = EmergencyApplication.Where(u => u.DriverId == Id).ToList().Count();
                 return emergencyCount;
             }
         }

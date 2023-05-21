@@ -1,22 +1,21 @@
-﻿<Page x:Class="CarInsurance.Pages.Client.InsuranceClaimPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:CarInsurance.Pages.Client"
-      mc:Ignorable="d"
-      d:DesignHeight="450"
-      d:DesignWidth="800"
-      Title="InsuranceClaimPage">
-
+﻿<Window x:Class="CarInsurance.Windows.IncuranceClaimOsagoPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarInsurance.Windows"
+        mc:Ignorable="d"
+        MinWidth="300"
+        MaxWidth="300"
+        MaxHeight="250"
+        MinHeight="250"
+        Title="Оформление страхового случая по ОСАГО"
+        Height="450"
+        Width="800">
     <Grid Background="White">
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="200">
-            <TextBlock Text="Выберите машину" />
-            <ComboBox DisplayMemberPath="CarNumberMakeModel"
-                      Name="ComboBoxCar" 
-                      SelectedItem="{Binding Car.Id}"/>
             <TextBlock Text="Выберите дату проишествия" />
             <DatePicker Name="DatePickerDate"
                         Width="200"
@@ -32,6 +31,7 @@
                 VerticalAlignment="Top"
                 Margin="15"
                 Name="ButtonBack"
-                Click="ButtonBack_Click"/>
+                Content="Назад"
+                Click="ButtonBack_Click" />
     </Grid>
-</Page>
+</Window>

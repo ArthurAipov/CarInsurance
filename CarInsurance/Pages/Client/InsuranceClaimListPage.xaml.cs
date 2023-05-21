@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarInsurance.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,17 @@ namespace CarInsurance.Pages.Client
     /// </summary>
     public partial class InsuranceClaimListPage : Page
     {
-        public InsuranceClaimListPage()
+        public InsuranceClaimListPage(DataBase.User mainUser)
         {
             InitializeComponent();
+            var driverId = mainUser.Driver.First().Id;
+            var applicationList = GlobalSettings.DB.EmergencyApplication.Where(u => u.DriverId == driverId).ToList();
+            DataGridEmergency.ItemsSource = applicationList.ToList();
+        }
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

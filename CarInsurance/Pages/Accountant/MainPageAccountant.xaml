@@ -33,6 +33,12 @@
                     Margin="10"
                     Height="50"
                     Width="160" />
+            <Button Content="Запросы на выплату ДТП"
+                    Name="ButtonApplicationList"
+                    Click="ButtonApplicationList_Click"
+                    Margin="10"
+                    Height="50"
+                    Width="160" />
         </StackPanel>
         <Frame Grid.Column="1"
                x:Name="AdminFrame"

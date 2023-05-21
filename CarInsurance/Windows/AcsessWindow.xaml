@@ -1,0 +1,28 @@
+﻿<Window x:Class="CarInsurance.Windows.AcsessWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarInsurance.Windows"
+        mc:Ignorable="d"
+        Title="Одобрить или отклонить"
+        MinHeight="150"
+        MinWidth="400"
+        MaxHeight="150"
+        MaxWidth="400">
+    <Grid>
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <Button Content="Одобрить"
+                    Name="ButtonAcsess"
+                    Click="ButtonAcsess_Click"
+                    Width="120" />
+            <Button Content="Отклонить"
+                    Name="ButtonDenide"
+                    Margin="20,0,0,0"
+                    Click="ButtonDenide_Click"
+                    Width="120" />
+        </StackPanel>
+    </Grid>
+</Window>

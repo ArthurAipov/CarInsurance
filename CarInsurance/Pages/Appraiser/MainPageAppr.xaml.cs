@@ -37,5 +37,10 @@ namespace CarInsurance.Pages.Appraiser
         {
             NavigationService.GoBack();
         }
+
+        private void ButtondsApplication_Click(object sender, RoutedEventArgs e)
+        {
+            AdminFrame.NavigationService.Navigate(new ApplicationForAppraiserPage());
+        }
     }
 }

@@ -59,6 +59,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -80,11 +81,29 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Driver.cs" />
+    <Compile Include="Pages\Accountant\ApplicationsForAccountantPage.xaml.cs">
+      <DependentUpon>ApplicationsForAccountantPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Appraiser\ApplicationForAppraiserPage.xaml.cs">
+      <DependentUpon>ApplicationForAppraiserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Client\InsuranceClaimListPage.xaml.cs">
       <DependentUpon>InsuranceClaimListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AcsessWindow.xaml.cs">
+      <DependentUpon>AcsessWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\IncuranceClaimOsagoPage.xaml.cs">
+      <DependentUpon>IncuranceClaimOsagoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\InsuraceClaimCascoWindow.xaml.cs">
+      <DependentUpon>InsuraceClaimCascoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ProfileDialogWindow.xaml.cs">
       <DependentUpon>ProfileDialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SelectedApplicationForAppraiserWindow.xaml.cs">
+      <DependentUpon>SelectedApplicationForAppraiserWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +181,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Accountant\ApplicationsForAccountantPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Accountant\DriversBlackListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Admin\StaffsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Appraiser\ApplicationForAppraiserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,10 +253,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Client\InsuranceClaimPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\Client\MainPageClient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -242,7 +265,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\AcsessWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\IncuranceClaimOsagoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\InsuraceClaimCascoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\ProfileDialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SelectedApplicationForAppraiserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -301,9 +340,6 @@
     </Compile>
     <Compile Include="Pages\Client\ClientTransportPage.xaml.cs">
       <DependentUpon>ClientTransportPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Client\InsuranceClaimPage.xaml.cs">
-      <DependentUpon>InsuranceClaimPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Client\MainPageClient.xaml.cs">
       <DependentUpon>MainPageClient.xaml</DependentUpon>

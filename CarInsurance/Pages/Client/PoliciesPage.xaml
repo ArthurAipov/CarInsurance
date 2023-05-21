@@ -13,11 +13,18 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <Button Grid.ColumnSpan="2"
+                Grid.Row="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="Button_Click"
+                Content="Посмотреть оформленные страховые случаи" />
         <DataGrid Grid.Row="1"
                   IsReadOnly="True"
                   AutoGenerateColumns="False"

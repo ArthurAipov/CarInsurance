@@ -1,5 +1,6 @@
 ﻿using CarInsurance.DataBase;
 using CarInsurance.Models;
+using CarInsurance.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,12 +23,14 @@ namespace CarInsurance.Pages.Client
     /// </summary>
     public partial class Policies : Page
     {
+        public User MainUser;
         public Policies(DataBase.User mainUser)
         {
             InitializeComponent();
             var driver = GlobalSettings.DB.Driver.FirstOrDefault(u => u.UserId == mainUser.Id);
             DataGridOsago.ItemsSource = GlobalSettings.DB.Osago.Where(u => u.DriverId == driver.Id).ToList();
             DataGridCasco.ItemsSource = GlobalSettings.DB.Casco.Where(u => u.DriverId == driver.Id).ToList();
+            MainUser = mainUser;
 
         }
 
@@ -42,13 +45,22 @@ namespace CarInsurance.Pages.Client
             var selectedOsago = DataGridOsago.SelectedItem as Osago;
             if(selectedOsago != null)
             {
-                NavigationService.Navigate(new InsuranceClaimPage(selectedOsago));
+                new IncuranceClaimOsagoPage(selectedOsago).ShowDialog();
             }
         }
 
         private void DataGridCasco_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            var selectedCasco = DataGridCasco.SelectedItem as Casco;
+            if(selectedCasco != null)
+            {
+                new InsuraceClaimCascoWindow(selectedCasco).ShowDialog();
+            }
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new InsuranceClaimListPage(MainUser));
         }
     }
 }

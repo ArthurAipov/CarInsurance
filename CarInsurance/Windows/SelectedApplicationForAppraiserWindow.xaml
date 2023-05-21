@@ -1,0 +1,58 @@
+﻿<Window x:Class="CarInsurance.Windows.SelectedApplicationForAppraiserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarInsurance.Windows"
+        mc:Ignorable="d"
+        MaxWidth="270"
+        MinWidth="270"
+        MinHeight="450"
+        MaxHeight="450"
+        Title="Просмотр заявки"
+        Height="450"
+        Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Width="60"
+                    Content="&lt;"
+                    Name="ButtonPrevious"
+                    Click="ButtonPrevious_Click"
+                    HorizontalAlignment="Left" />
+            <Image Width="150"
+                   Name="PhotoApplication" />
+            <Button Width="60"
+                    Content="&gt;"
+                    Name="ButtonNext"
+                    HorizontalAlignment="Right"
+                    Click="ButtonNext_Click" />
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center">
+            <TextBlock Text="{Binding DateEmergency, StringFormat='Дата ДТП: {0}'}" />
+            <TextBlock Text="{Binding Car.Number, StringFormat='Номер машины: {0}'}" />
+            <TextBlock Text="{Binding Car.CarNumberMakeModel, StringFormat='Дата ДТП: {0}'}" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Оценочная цена: " />
+                <TextBox Text="{Binding Price}"
+                         Width="150" />
+            </StackPanel>
+            <StackPanel Margin="0,10,0,0"
+                        Orientation="Horizontal">
+                <Button Content="Сохранить"
+                        Width="120"
+                        Name="ButtonSave"
+                        Click="ButtonSave_Click" />
+                <Button Content="Назад"
+                        Width="120"
+                        Name="ButtonBack"
+                        Click="ButtonBack_Click"
+                        Margin="30,0,0,0" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
