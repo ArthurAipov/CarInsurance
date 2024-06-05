@@ -48,7 +48,7 @@ namespace CarInsurance.Pages.Client
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new AutorizationPage());
         }
     }
 }

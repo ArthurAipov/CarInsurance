@@ -35,7 +35,7 @@ namespace CarInsurance.Pages.Appraiser
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new AutorizationPage());
         }
 
         private void ButtondsApplication_Click(object sender, RoutedEventArgs e)

@@ -17,19 +17,10 @@
             <RowDefinition Height="150" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <Button Width="60"
-                    Content="&lt;"
-                    Name="ButtonPrevious"
-                    Click="ButtonPrevious_Click"
-                    HorizontalAlignment="Left" />
-            <Image Width="150"
-                   Name="PhotoApplication" />
-            <Button Width="60"
-                    Content="&gt;"
-                    Name="ButtonNext"
-                    HorizontalAlignment="Right"
-                    Click="ButtonNext_Click" />
+        <StackPanel Orientation="Horizontal"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Center">
+            <Image Source="/Resource/CarInsurance.jpg" />
         </StackPanel>
         <StackPanel Grid.Row="1"
                     VerticalAlignment="Center">
@@ -53,6 +44,9 @@
                         Click="ButtonBack_Click"
                         Margin="30,0,0,0" />
             </StackPanel>
+            <Button Content="Добавить фотографии"
+                    Name="ButtonAddPhoto"
+                    Click="ButtonAddPhoto_Click" />
         </StackPanel>
     </Grid>
 </Window>

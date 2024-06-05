@@ -9,6 +9,6 @@ namespace CarInsurance.Models
 {
     public static class GlobalSettings
     {
-        public static CarInsuranceEntities DB = new CarInsuranceEntities();
+        public static db_aa8f93_carinsurenceEntities DB = new db_aa8f93_carinsurenceEntities();
     }
 }

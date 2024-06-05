@@ -1,5 +1,6 @@
 ﻿using CarInsurance.DataBase;
 using CarInsurance.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,50 +25,11 @@ namespace CarInsurance.Windows
     {
         public EmergencyApplication MainApplication;
         public int ClickCount;
-        public List<ImageSource> PhotoForApplication = new List<ImageSource>();
+        public List<byte[]> PhotosForApplication = new List<byte[]>();
         public SelectedApplicationForAppraiserWindow(DataBase.EmergencyApplication selectedApplication)
         {
             InitializeComponent();
-            MainApplication = selectedApplication;
-            foreach (var image in GlobalSettings.DB.PhotoEmergency.Where(u => u.EmergencyApplicationId == selectedApplication.Id).ToList())
-            {
-                var photo = ByteToImage(image.Photo);
-                PhotoForApplication.Add(photo);
-            }
-            PhotoApplication.Source = PhotoForApplication[0];
             DataContext = selectedApplication;
-        }
-
-        public static ImageSource ByteToImage(byte[] imageData)
-        {
-            BitmapImage biImg = new BitmapImage();
-            MemoryStream ms = new MemoryStream(imageData);
-            biImg.BeginInit();
-            biImg.StreamSource = ms;
-            biImg.EndInit();
-             
-            ImageSource imgSrc = biImg as ImageSource;
-
-            return imgSrc;
-        }
-
-
-        private void ButtonPrevious_Click(object sender, RoutedEventArgs e)
-        {
-            if (ClickCount <= PhotoForApplication.Count - 1 && ClickCount != 0)
-            {
-                ClickCount--;
-                PhotoApplication.Source = PhotoForApplication[ClickCount];
-            }
-        }
-
-        private void ButtonNext_Click(object sender, RoutedEventArgs e)
-        {
-            if (ClickCount < PhotoForApplication.Count - 1)
-            {
-                ClickCount++;
-                PhotoApplication.Source = PhotoForApplication[ClickCount];
-            }
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
@@ -78,9 +40,32 @@ namespace CarInsurance.Windows
                 MessageBox.Show("Введите корректную ценну");
                 return;
             }
+            if (PhotosForApplication.Count == 0)
+            {
+                MessageBox.Show("Добавьте фото\n");
+            }
             application.StatusId = 4;
             GlobalSettings.DB.SaveChanges();
+            var applicationId = GlobalSettings.DB.EmergencyApplication.Where(u => u.DriverId == application.Driver.Id).ToList();
+            foreach (var photo in PhotosForApplication)
+            {
+                var applicationIdForPhoto = applicationId.Last().Id;
+                var emergencyPhoto = new PhotoEmergency { EmergencyApplicationId = applicationIdForPhoto, Photo = photo };
+                GlobalSettings.DB.PhotoEmergency.Add(emergencyPhoto);
+            }
+            GlobalSettings.DB.SaveChanges();
             this.DialogResult = true;
+        }
+
+        private void ButtonAddPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            var openFileDialog = new OpenFileDialog() { Filter = ".png, .jpg, .jpeg| *.png; *.jpg; *.jpeg" };
+            if (openFileDialog.ShowDialog() == true)
+            {
+                var file = openFileDialog.FileName;
+                var photo = File.ReadAllBytes(file);
+                PhotosForApplication.Add(photo);
+            }
         }
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)

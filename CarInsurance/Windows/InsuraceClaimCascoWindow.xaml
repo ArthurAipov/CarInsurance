@@ -20,9 +20,7 @@
             <DatePicker Name="DatePickerDate"
                         Width="200"
                         SelectedDate="{Binding DateEmergency}" />
-            <Button Content="Добавить фотографии"
-                    Name="ButtonAddPhoto"
-                    Click="ButtonAddPhoto_Click" />
+            
             <Button Content="Оформить заявку"
                     Name="ButtonAddEmergencyApplication"
                     Click="ButtonAddEmergencyApplication_Click" />

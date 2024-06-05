@@ -13,10 +13,10 @@ namespace CarInsurance.DataBase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CarInsuranceEntities : DbContext
+    public partial class db_aa8f93_carinsurenceEntities : DbContext
     {
-        public CarInsuranceEntities()
-            : base("name=CarInsuranceEntities")
+        public db_aa8f93_carinsurenceEntities()
+            : base("name=db_aa8f93_carinsurenceEntities")
         {
         }
     

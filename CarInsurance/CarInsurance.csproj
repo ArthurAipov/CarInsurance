@@ -80,6 +80,66 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBase\Brand.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Car.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\CarInsurenceModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarInsurenceModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\CarInsurenceModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\CarInsurenceModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarInsurenceModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Casco.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Driver.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\EmergencyApplication.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Model.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Osago.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\PhotoEmergency.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Region.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Role.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Staff.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Status.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\sysdiagrams.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Type.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\User.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Driver.cs" />
     <Compile Include="Pages\Accountant\ApplicationsForAccountantPage.xaml.cs">
       <DependentUpon>ApplicationsForAccountantPage.xaml</DependentUpon>
@@ -112,66 +172,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DataBase\Brand.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Car.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Casco.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Driver.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\EmergencyApplication.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Model.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Osago.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\PhotoEmergency.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Region.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Role.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Staff.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Status.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Type.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\User.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -367,12 +367,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DataBase\Model1.edmx">
+    <EntityDeploy Include="DataBase\CarInsurenceModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>CarInsurenceModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataBase\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="DataBase\CarInsurenceModel.edmx.diagram">
+      <DependentUpon>CarInsurenceModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -383,21 +383,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DataBase\CarInsurenceModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarInsurenceModel.edmx</DependentUpon>
+      <LastGenOutput>CarInsurenceModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataBase\CarInsurenceModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarInsurenceModel.edmx</DependentUpon>
+      <LastGenOutput>CarInsurenceModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\CarInsurance.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataBase\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="DataBase\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resource\IcoCasco.jpg" />
     <Resource Include="Resource\IcoOsago.jpg" />
   </ItemGroup>

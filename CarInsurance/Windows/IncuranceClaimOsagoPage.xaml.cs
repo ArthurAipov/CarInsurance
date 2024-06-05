@@ -43,17 +43,6 @@ namespace CarInsurance.Windows
 
         }
 
-        private void ButtonAddPhoto_Click(object sender, RoutedEventArgs e)
-        {
-            var openFileDialog = new OpenFileDialog() { Filter = ".png, .jpg, .jpeg| *.png; *.jpg; *.jpeg" };
-            if (openFileDialog.ShowDialog() == true)
-            {
-                var file = openFileDialog.FileName;
-                var photo = File.ReadAllBytes(file);
-                PhotosForApplication.Add(photo);
-            }
-        }
-
         private void ButtonAddEmergencyApplication_Click(object sender, RoutedEventArgs e)
         {
             var application = DataContext as EmergencyApplication;
@@ -64,9 +53,6 @@ namespace CarInsurance.Windows
             {
                 errorMessage += "Выберите дату дтп\n";
             }
-            if(PhotosForApplication.Count == 0)
-            {
-                errorMessage += "Добавьте фото\n";            }
             if (!string.IsNullOrWhiteSpace(errorMessage))
             {
                 MessageBox.Show(errorMessage);
@@ -78,14 +64,6 @@ namespace CarInsurance.Windows
             application.ApplicationType = 1;
             GlobalSettings.DB.EmergencyApplication.Add(application);
             GlobalSettings.DB.SaveChanges();
-            var applicationId = GlobalSettings.DB.EmergencyApplication.Where(u => u.DriverId == MainDriver.Id).ToList();
-            foreach (var photo in PhotosForApplication)
-            {
-                var applicationIdForPhoto = applicationId.Last().Id;
-                var emergencyPhoto = new PhotoEmergency { EmergencyApplicationId = applicationIdForPhoto, Photo = photo };
-                GlobalSettings.DB.PhotoEmergency.Add(emergencyPhoto);
-                GlobalSettings.DB.SaveChanges();
-            }
             this.DialogResult = true;
 
         }

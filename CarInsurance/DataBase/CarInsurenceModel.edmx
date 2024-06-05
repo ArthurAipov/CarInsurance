@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CarInsuranceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="db_aa8f93_carinsurenceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Brand">
           <Key>
             <PropertyRef Name="Id" />
@@ -324,7 +324,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CarInsuranceModelStoreContainer">
+        <EntityContainer Name="db_aa8f93_carinsurenceModelStoreContainer">
           <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Casco" EntityType="Self.Casco" Schema="dbo" store:Type="Tables" />
@@ -397,107 +397,35 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CarInsuranceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="CarInsuranceEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Brand" EntityType="CarInsuranceModel.Brand" />
-          <EntitySet Name="Car" EntityType="CarInsuranceModel.Car" />
-          <EntitySet Name="Casco" EntityType="CarInsuranceModel.Casco" />
-          <EntitySet Name="Driver" EntityType="CarInsuranceModel.Driver" />
-          <EntitySet Name="EmergencyApplication" EntityType="CarInsuranceModel.EmergencyApplication" />
-          <EntitySet Name="Model" EntityType="CarInsuranceModel.Model" />
-          <EntitySet Name="Osago" EntityType="CarInsuranceModel.Osago" />
-          <EntitySet Name="PhotoEmergency" EntityType="CarInsuranceModel.PhotoEmergency" />
-          <EntitySet Name="Region" EntityType="CarInsuranceModel.Region" />
-          <EntitySet Name="Role" EntityType="CarInsuranceModel.Role" />
-          <EntitySet Name="Staff" EntityType="CarInsuranceModel.Staff" />
-          <EntitySet Name="Status" EntityType="CarInsuranceModel.Status" />
-          <EntitySet Name="sysdiagrams" EntityType="CarInsuranceModel.sysdiagrams" />
-          <EntitySet Name="Type" EntityType="CarInsuranceModel.Type" />
-          <EntitySet Name="User" EntityType="CarInsuranceModel.User" />
-          <AssociationSet Name="FK_Car_Driver" Association="CarInsuranceModel.FK_Car_Driver">
-            <End Role="Driver" EntitySet="Driver" />
-            <End Role="Car" EntitySet="Car" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Car_Model" Association="CarInsuranceModel.FK_Car_Model">
-            <End Role="Model" EntitySet="Model" />
-            <End Role="Car" EntitySet="Car" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Casco_Car" Association="CarInsuranceModel.FK_Casco_Car">
-            <End Role="Car" EntitySet="Car" />
-            <End Role="Casco" EntitySet="Casco" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmergencyApplication_Car" Association="CarInsuranceModel.FK_EmergencyApplication_Car">
-            <End Role="Car" EntitySet="Car" />
-            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Osago_Car" Association="CarInsuranceModel.FK_Osago_Car">
-            <End Role="Car" EntitySet="Car" />
-            <End Role="Osago" EntitySet="Osago" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Casco_Driver" Association="CarInsuranceModel.FK_Casco_Driver">
-            <End Role="Driver" EntitySet="Driver" />
-            <End Role="Casco" EntitySet="Casco" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Driver_User" Association="CarInsuranceModel.FK_Driver_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Driver" EntitySet="Driver" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmergencyApplication_Driver" Association="CarInsuranceModel.FK_EmergencyApplication_Driver">
-            <End Role="Driver" EntitySet="Driver" />
-            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Osago_Driver" Association="CarInsuranceModel.FK_Osago_Driver">
-            <End Role="Driver" EntitySet="Driver" />
-            <End Role="Osago" EntitySet="Osago" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmergencyApplication_Status" Association="CarInsuranceModel.FK_EmergencyApplication_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PhotoEmergency_EmergencyApplication" Association="CarInsuranceModel.FK_PhotoEmergency_EmergencyApplication">
-            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
-            <End Role="PhotoEmergency" EntitySet="PhotoEmergency" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Osago_Region" Association="CarInsuranceModel.FK_Osago_Region">
-            <End Role="Region" EntitySet="Region" />
-            <End Role="Osago" EntitySet="Osago" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Role" Association="CarInsuranceModel.FK_User_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Staff_User" Association="CarInsuranceModel.FK_Staff_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Staff" EntitySet="Staff" />
-          </AssociationSet>
-        </EntityContainer>
+      <Schema Namespace="db_aa8f93_carinsurenceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Brand">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Car">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Horsepower" Type="Double" Nullable="false" />
-          <Property Name="VIN" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VIN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DriverId" Type="Int32" Nullable="false" />
-          <Property Name="Passport" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Passport" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateOfPurchase" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ModelsId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Driver" Relationship="CarInsuranceModel.FK_Car_Driver" FromRole="Car" ToRole="Driver" />
-          <NavigationProperty Name="Model" Relationship="CarInsuranceModel.FK_Car_Model" FromRole="Car" ToRole="Model" />
-          <NavigationProperty Name="Casco" Relationship="CarInsuranceModel.FK_Casco_Car" FromRole="Car" ToRole="Casco" />
-          <NavigationProperty Name="EmergencyApplication" Relationship="CarInsuranceModel.FK_EmergencyApplication_Car" FromRole="Car" ToRole="EmergencyApplication" />
-          <NavigationProperty Name="Osago" Relationship="CarInsuranceModel.FK_Osago_Car" FromRole="Car" ToRole="Osago" />
+          <NavigationProperty Name="Driver" Relationship="Self.FK_Car_Driver" FromRole="Car" ToRole="Driver" />
+          <NavigationProperty Name="Model" Relationship="Self.FK_Car_Model" FromRole="Car" ToRole="Model" />
+          <NavigationProperty Name="Casco" Relationship="Self.FK_Casco_Car" FromRole="Car" ToRole="Casco" />
+          <NavigationProperty Name="EmergencyApplication" Relationship="Self.FK_EmergencyApplication_Car" FromRole="Car" ToRole="EmergencyApplication" />
+          <NavigationProperty Name="Osago" Relationship="Self.FK_Osago_Car" FromRole="Car" ToRole="Osago" />
         </EntityType>
         <EntityType Name="Casco">
           <Key>
@@ -509,8 +437,8 @@
           <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="CarId" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Car" Relationship="CarInsuranceModel.FK_Casco_Car" FromRole="Casco" ToRole="Car" />
-          <NavigationProperty Name="Driver" Relationship="CarInsuranceModel.FK_Casco_Driver" FromRole="Casco" ToRole="Driver" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_Casco_Car" FromRole="Casco" ToRole="Car" />
+          <NavigationProperty Name="Driver" Relationship="Self.FK_Casco_Driver" FromRole="Casco" ToRole="Driver" />
         </EntityType>
         <EntityType Name="Driver">
           <Key>
@@ -518,21 +446,21 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Surname" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Patronic" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="PassportData" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DriverLicense" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronic" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassportData" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverLicense" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Experience" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="BlackList" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Car" Relationship="CarInsuranceModel.FK_Car_Driver" FromRole="Driver" ToRole="Car" />
-          <NavigationProperty Name="Casco" Relationship="CarInsuranceModel.FK_Casco_Driver" FromRole="Driver" ToRole="Casco" />
-          <NavigationProperty Name="User" Relationship="CarInsuranceModel.FK_Driver_User" FromRole="Driver" ToRole="User" />
-          <NavigationProperty Name="EmergencyApplication" Relationship="CarInsuranceModel.FK_EmergencyApplication_Driver" FromRole="Driver" ToRole="EmergencyApplication" />
-          <NavigationProperty Name="Osago" Relationship="CarInsuranceModel.FK_Osago_Driver" FromRole="Driver" ToRole="Osago" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_Car_Driver" FromRole="Driver" ToRole="Car" />
+          <NavigationProperty Name="Casco" Relationship="Self.FK_Casco_Driver" FromRole="Driver" ToRole="Casco" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Driver_User" FromRole="Driver" ToRole="User" />
+          <NavigationProperty Name="EmergencyApplication" Relationship="Self.FK_EmergencyApplication_Driver" FromRole="Driver" ToRole="EmergencyApplication" />
+          <NavigationProperty Name="Osago" Relationship="Self.FK_Osago_Driver" FromRole="Driver" ToRole="Osago" />
         </EntityType>
         <EntityType Name="EmergencyApplication">
           <Key>
@@ -545,23 +473,23 @@
           <Property Name="StatusId" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Double" Nullable="false" />
           <Property Name="ApplicationType" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Car" Relationship="CarInsuranceModel.FK_EmergencyApplication_Car" FromRole="EmergencyApplication" ToRole="Car" />
-          <NavigationProperty Name="Driver" Relationship="CarInsuranceModel.FK_EmergencyApplication_Driver" FromRole="EmergencyApplication" ToRole="Driver" />
-          <NavigationProperty Name="Status" Relationship="CarInsuranceModel.FK_EmergencyApplication_Status" FromRole="EmergencyApplication" ToRole="Status" />
-          <NavigationProperty Name="PhotoEmergency" Relationship="CarInsuranceModel.FK_PhotoEmergency_EmergencyApplication" FromRole="EmergencyApplication" ToRole="PhotoEmergency" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_EmergencyApplication_Car" FromRole="EmergencyApplication" ToRole="Car" />
+          <NavigationProperty Name="Driver" Relationship="Self.FK_EmergencyApplication_Driver" FromRole="EmergencyApplication" ToRole="Driver" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_EmergencyApplication_Status" FromRole="EmergencyApplication" ToRole="Status" />
+          <NavigationProperty Name="PhotoEmergency" Relationship="Self.FK_PhotoEmergency_EmergencyApplication" FromRole="EmergencyApplication" ToRole="PhotoEmergency" />
         </EntityType>
         <EntityType Name="Model">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Make" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ModelName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Category" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Year" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Make" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModelName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ModelYear" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Car" Relationship="CarInsuranceModel.FK_Car_Model" FromRole="Model" ToRole="Car" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_Car_Model" FromRole="Model" ToRole="Car" />
         </EntityType>
         <EntityType Name="Osago">
           <Key>
@@ -574,9 +502,9 @@
           <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="CarId" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Car" Relationship="CarInsuranceModel.FK_Osago_Car" FromRole="Osago" ToRole="Car" />
-          <NavigationProperty Name="Driver" Relationship="CarInsuranceModel.FK_Osago_Driver" FromRole="Osago" ToRole="Driver" />
-          <NavigationProperty Name="Region" Relationship="CarInsuranceModel.FK_Osago_Region" FromRole="Osago" ToRole="Region" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_Osago_Car" FromRole="Osago" ToRole="Car" />
+          <NavigationProperty Name="Driver" Relationship="Self.FK_Osago_Driver" FromRole="Osago" ToRole="Driver" />
+          <NavigationProperty Name="Region" Relationship="Self.FK_Osago_Region" FromRole="Osago" ToRole="Region" />
         </EntityType>
         <EntityType Name="PhotoEmergency">
           <Key>
@@ -584,25 +512,25 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmergencyApplicationId" Type="Int32" Nullable="false" />
-          <Property Name="Photo" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="EmergencyApplication" Relationship="CarInsuranceModel.FK_PhotoEmergency_EmergencyApplication" FromRole="PhotoEmergency" ToRole="EmergencyApplication" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="EmergencyApplication" Relationship="Self.FK_PhotoEmergency_EmergencyApplication" FromRole="PhotoEmergency" ToRole="EmergencyApplication" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CoefficientForOsago" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Osago" Relationship="CarInsuranceModel.FK_Osago_Region" FromRole="Region" ToRole="Osago" />
+          <NavigationProperty Name="Osago" Relationship="Self.FK_Osago_Region" FromRole="Region" ToRole="Osago" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="CarInsuranceModel.FK_User_Role" FromRole="Role" ToRole="User" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -610,25 +538,25 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Surename" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="CarInsuranceModel.FK_Staff_User" FromRole="Staff" ToRole="User" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surename" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Staff_User" FromRole="Staff" ToRole="User" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="EmergencyApplication" Relationship="CarInsuranceModel.FK_EmergencyApplication_Status" FromRole="Status" ToRole="EmergencyApplication" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="EmergencyApplication" Relationship="Self.FK_EmergencyApplication_Status" FromRole="Status" ToRole="EmergencyApplication" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -639,23 +567,23 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Driver" Relationship="CarInsuranceModel.FK_Driver_User" FromRole="User" ToRole="Driver" />
-          <NavigationProperty Name="Role" Relationship="CarInsuranceModel.FK_User_Role" FromRole="User" ToRole="Role" />
-          <NavigationProperty Name="Staff" Relationship="CarInsuranceModel.FK_Staff_User" FromRole="User" ToRole="Staff" />
+          <NavigationProperty Name="Driver" Relationship="Self.FK_Driver_User" FromRole="User" ToRole="Driver" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_User" FromRole="User" ToRole="Staff" />
         </EntityType>
         <Association Name="FK_Car_Driver">
-          <End Type="CarInsuranceModel.Driver" Role="Driver" Multiplicity="1" />
-          <End Type="CarInsuranceModel.Car" Role="Car" Multiplicity="*" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver">
               <PropertyRef Name="Id" />
@@ -666,8 +594,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Car_Model">
-          <End Type="CarInsuranceModel.Model" Role="Model" Multiplicity="1" />
-          <End Type="CarInsuranceModel.Car" Role="Car" Multiplicity="*" />
+          <End Role="Model" Type="Self.Model" Multiplicity="1" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Model">
               <PropertyRef Name="Id" />
@@ -678,8 +606,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Casco_Car">
-          <End Type="CarInsuranceModel.Car" Role="Car" Multiplicity="1" />
-          <End Type="CarInsuranceModel.Casco" Role="Casco" Multiplicity="*" />
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="Casco" Type="Self.Casco" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Car">
               <PropertyRef Name="Id" />
@@ -690,8 +618,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmergencyApplication_Car">
-          <End Type="CarInsuranceModel.Car" Role="Car" Multiplicity="1" />
-          <End Type="CarInsuranceModel.EmergencyApplication" Role="EmergencyApplication" Multiplicity="*" />
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="EmergencyApplication" Type="Self.EmergencyApplication" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Car">
               <PropertyRef Name="Id" />
@@ -702,8 +630,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Osago_Car">
-          <End Type="CarInsuranceModel.Car" Role="Car" Multiplicity="1" />
-          <End Type="CarInsuranceModel.Osago" Role="Osago" Multiplicity="*" />
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="Osago" Type="Self.Osago" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Car">
               <PropertyRef Name="Id" />
@@ -714,8 +642,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Casco_Driver">
-          <End Type="CarInsuranceModel.Driver" Role="Driver" Multiplicity="1" />
-          <End Type="CarInsuranceModel.Casco" Role="Casco" Multiplicity="*" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+          <End Role="Casco" Type="Self.Casco" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver">
               <PropertyRef Name="Id" />
@@ -726,8 +654,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Driver_User">
-          <End Type="CarInsuranceModel.User" Role="User" Multiplicity="1" />
-          <End Type="CarInsuranceModel.Driver" Role="Driver" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -738,8 +666,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmergencyApplication_Driver">
-          <End Type="CarInsuranceModel.Driver" Role="Driver" Multiplicity="1" />
-          <End Type="CarInsuranceModel.EmergencyApplication" Role="EmergencyApplication" Multiplicity="*" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+          <End Role="EmergencyApplication" Type="Self.EmergencyApplication" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver">
               <PropertyRef Name="Id" />
@@ -750,8 +678,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Osago_Driver">
-          <End Type="CarInsuranceModel.Driver" Role="Driver" Multiplicity="1" />
-          <End Type="CarInsuranceModel.Osago" Role="Osago" Multiplicity="*" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+          <End Role="Osago" Type="Self.Osago" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver">
               <PropertyRef Name="Id" />
@@ -762,8 +690,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmergencyApplication_Status">
-          <End Type="CarInsuranceModel.Status" Role="Status" Multiplicity="1" />
-          <End Type="CarInsuranceModel.EmergencyApplication" Role="EmergencyApplication" Multiplicity="*" />
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="EmergencyApplication" Type="Self.EmergencyApplication" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
               <PropertyRef Name="Id" />
@@ -774,8 +702,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PhotoEmergency_EmergencyApplication">
-          <End Type="CarInsuranceModel.EmergencyApplication" Role="EmergencyApplication" Multiplicity="1" />
-          <End Type="CarInsuranceModel.PhotoEmergency" Role="PhotoEmergency" Multiplicity="*" />
+          <End Role="EmergencyApplication" Type="Self.EmergencyApplication" Multiplicity="1" />
+          <End Role="PhotoEmergency" Type="Self.PhotoEmergency" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EmergencyApplication">
               <PropertyRef Name="Id" />
@@ -786,8 +714,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Osago_Region">
-          <End Type="CarInsuranceModel.Region" Role="Region" Multiplicity="1" />
-          <End Type="CarInsuranceModel.Osago" Role="Osago" Multiplicity="*" />
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Osago" Type="Self.Osago" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Region">
               <PropertyRef Name="Id" />
@@ -798,8 +726,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Role">
-          <End Type="CarInsuranceModel.Role" Role="Role" Multiplicity="1" />
-          <End Type="CarInsuranceModel.User" Role="User" Multiplicity="*" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="Id" />
@@ -810,8 +738,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Staff_User">
-          <End Type="CarInsuranceModel.User" Role="User" Multiplicity="1" />
-          <End Type="CarInsuranceModel.Staff" Role="Staff" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -821,175 +749,248 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+        <EntityContainer Name="db_aa8f93_carinsurenceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Brand" EntityType="Self.Brand" />
+          <EntitySet Name="Car" EntityType="Self.Car" />
+          <EntitySet Name="Casco" EntityType="Self.Casco" />
+          <EntitySet Name="Driver" EntityType="Self.Driver" />
+          <EntitySet Name="EmergencyApplication" EntityType="Self.EmergencyApplication" />
+          <EntitySet Name="Model" EntityType="Self.Model" />
+          <EntitySet Name="Osago" EntityType="Self.Osago" />
+          <EntitySet Name="PhotoEmergency" EntityType="Self.PhotoEmergency" />
+          <EntitySet Name="Region" EntityType="Self.Region" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Type" EntityType="Self.Type" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Car_Driver" Association="Self.FK_Car_Driver">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Car_Model" Association="Self.FK_Car_Model">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Casco_Car" Association="Self.FK_Casco_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="Casco" EntitySet="Casco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmergencyApplication_Car" Association="Self.FK_EmergencyApplication_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Osago_Car" Association="Self.FK_Osago_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="Osago" EntitySet="Osago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Casco_Driver" Association="Self.FK_Casco_Driver">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="Casco" EntitySet="Casco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Driver_User" Association="Self.FK_Driver_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Driver" EntitySet="Driver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmergencyApplication_Driver" Association="Self.FK_EmergencyApplication_Driver">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Osago_Driver" Association="Self.FK_Osago_Driver">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="Osago" EntitySet="Osago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmergencyApplication_Status" Association="Self.FK_EmergencyApplication_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoEmergency_EmergencyApplication" Association="Self.FK_PhotoEmergency_EmergencyApplication">
+            <End Role="EmergencyApplication" EntitySet="EmergencyApplication" />
+            <End Role="PhotoEmergency" EntitySet="PhotoEmergency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Osago_Region" Association="Self.FK_Osago_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Osago" EntitySet="Osago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_User" Association="Self.FK_Staff_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CarInsuranceModelStoreContainer" CdmEntityContainer="CarInsuranceEntities">
+        <EntityContainerMapping StorageEntityContainer="db_aa8f93_carinsurenceModelStoreContainer" CdmEntityContainer="db_aa8f93_carinsurenceEntities">
           <EntitySetMapping Name="Brand">
-            <EntityTypeMapping TypeName="CarInsuranceModel.Brand">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.Brand">
               <MappingFragment StoreEntitySet="Brand">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Car">
-            <EntityTypeMapping TypeName="CarInsuranceModel.Car">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.Car">
               <MappingFragment StoreEntitySet="Car">
-                <ScalarProperty Name="ModelsId" ColumnName="ModelsId" />
-                <ScalarProperty Name="DateOfPurchase" ColumnName="DateOfPurchase" />
-                <ScalarProperty Name="Passport" ColumnName="Passport" />
-                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
-                <ScalarProperty Name="VIN" ColumnName="VIN" />
-                <ScalarProperty Name="Horsepower" ColumnName="Horsepower" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Horsepower" ColumnName="Horsepower" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="DateOfPurchase" ColumnName="DateOfPurchase" />
+                <ScalarProperty Name="ModelsId" ColumnName="ModelsId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Casco">
-            <EntityTypeMapping TypeName="CarInsuranceModel.Casco">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.Casco">
               <MappingFragment StoreEntitySet="Casco">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="CarId" ColumnName="CarId" />
-                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
-                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
-                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Driver">
-            <EntityTypeMapping TypeName="CarInsuranceModel.Driver">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.Driver">
               <MappingFragment StoreEntitySet="Driver">
-                <ScalarProperty Name="BlackList" ColumnName="BlackList" />
-                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
-                <ScalarProperty Name="Experience" ColumnName="Experience" />
-                <ScalarProperty Name="DriverLicense" ColumnName="DriverLicense" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="PassportData" ColumnName="PassportData" />
-                <ScalarProperty Name="Patronic" ColumnName="Patronic" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Patronic" ColumnName="Patronic" />
+                <ScalarProperty Name="PassportData" ColumnName="PassportData" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DriverLicense" ColumnName="DriverLicense" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="BlackList" ColumnName="BlackList" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmergencyApplication">
-            <EntityTypeMapping TypeName="CarInsuranceModel.EmergencyApplication">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.EmergencyApplication">
               <MappingFragment StoreEntitySet="EmergencyApplication">
-                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-                <ScalarProperty Name="DateEmergency" ColumnName="DateEmergency" />
-                <ScalarProperty Name="CarId" ColumnName="CarId" />
-                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="DateEmergency" ColumnName="DateEmergency" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Model">
-            <EntityTypeMapping TypeName="CarInsuranceModel.Model">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.Model">
               <MappingFragment StoreEntitySet="Model">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="ModelYear" ColumnName="ModelYear" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
-                <ScalarProperty Name="Make" ColumnName="Make" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="ModelYear" ColumnName="ModelYear" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Osago">
-            <EntityTypeMapping TypeName="CarInsuranceModel.Osago">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.Osago">
               <MappingFragment StoreEntitySet="Osago">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="CarId" ColumnName="CarId" />
-                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
-                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
-                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
-                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhotoEmergency">
-            <EntityTypeMapping TypeName="CarInsuranceModel.PhotoEmergency">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.PhotoEmergency">
               <MappingFragment StoreEntitySet="PhotoEmergency">
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="EmergencyApplicationId" ColumnName="EmergencyApplicationId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmergencyApplicationId" ColumnName="EmergencyApplicationId" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Region">
-            <EntityTypeMapping TypeName="CarInsuranceModel.Region">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.Region">
               <MappingFragment StoreEntitySet="Region">
-                <ScalarProperty Name="CoefficientForOsago" ColumnName="CoefficientForOsago" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CoefficientForOsago" ColumnName="CoefficientForOsago" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="CarInsuranceModel.Role">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.Role">
               <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Staff">
-            <EntityTypeMapping TypeName="CarInsuranceModel.Staff">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.Staff">
               <MappingFragment StoreEntitySet="Staff">
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Surename" ColumnName="Surename" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surename" ColumnName="Surename" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="CarInsuranceModel.Status">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.Status">
               <MappingFragment StoreEntitySet="Status">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="CarInsuranceModel.sysdiagrams">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Type">
-            <EntityTypeMapping TypeName="CarInsuranceModel.Type">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.Type">
               <MappingFragment StoreEntitySet="Type">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="CarInsuranceModel.User">
+            <EntityTypeMapping TypeName="db_aa8f93_carinsurenceModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
